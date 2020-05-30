@@ -1,0 +1,76 @@
+<div id="post-view" layout="column">
+	<header layout="space-between">
+		<div class="logo" layout="row">
+			<a href="http://sombrio.ifc.edu.br/" target="_blank"><img class="logoImg" src="imagens/logo.png" width="40px" height="50px"></a>
+			<h1><a ui-sref="indexPage">FÍSICA</a></h1>
+		</div>
+		<nav>
+			<ul>
+				<li><a ui-sref="indexPage">Início</a></li>
+				<li ng-if="userLogged"><a ui-sref="userSettingsPage">Minhas configurações</a></li>
+				<li ng-if="userLogged"><a ui-sref="membersPage">Membros</a></li>
+				<li ng-if="userLogged"><a ui-sref="articlesPage">Meus artigos</a></li>
+				<li ng-if="userLogged"><a ui-sref="createPostPage">Criar artigo</a></li>
+				<li>
+					<md-button ng-if="!userLogged" ui-sref="loginPage" class="md-raised md-primary">
+						Entrar
+					</md-button>
+					<md-button ng-if="userLogged" ui-sref="logoutPage" class="md-raised md-primary">
+						Sair
+					</md-button>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<div id="content">
+		<div id="articleActions">
+			<md-button ng-click="openReferenceArticle()" class="md-outline md-primary">
+				Referenciar artigo
+			</md-button>
+			<md-button ng-if="userLogged" ui-sref="editPostPage({post: postData.url})" class="md-raised md-primary">
+				Editar post
+			</md-button>		
+			<md-button ng-if="userLogged" ng-click="postDelete(postData.id)" class="md-raised md-warn">
+				Deletar post
+			</md-button>		
+		</div>
+		<div id="articleHeader">
+			<p class="author-and-date">{{postData.author}} em {{postData.date}}</p>
+			<h1 class="title">{{postData.title}}</h1>
+			<p class="description">{{postData.description}}</p>
+		</div>
+		<div id="conteudo" data-ng-bind-html="trustAsHtml(postData.conteudo)">
+		</div>
+		<div id="classification" layout="column" layout-align="center center">
+			<h3>O que achou deste artigo?</h3>
+			<div class="buttonsClassification" layout="row">
+				<md-button ng-click="setClassification(1)" class="md-icon-button" aria-label="Gostei">
+					<md-icon id="like">thumb_up</md-icon>
+				</md-button>
+				<md-button ng-click="setClassification(0)" class="md-icon-button" aria-label="Não gostei">
+					<md-icon id="dislike">thumb_down</md-icon>
+				</md-button>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="referenceArticle" ng-if="stateReferenceArticle" layout="column" layout-align="center center">
+		<div id="reference-wrapper">
+
+			<md-button ng-click="closeReferenceArticle()" class="reference-box-close md-icon-button" aria-label="Fechar">
+        		<md-icon>close</md-icon>
+ 	 		</md-button>
+
+ 	 		<div id="reference">
+				<h1 class="title">Referencie</h1>
+				<p class="description">Copie abaixo o modelo para referenciar este artigo em seu trabalho acadêmico.</p>
+
+				<code class="referenceCode">
+					{{postData.referenceName}}. <b>{{postData.title}}</b>; IFC Física. Disponível em &lt;{{postData.referenceSite}}&gt;. Acesso em {{postData.referenceDay}} de {{postData.referenceMonth}} de {{postData.referenceYear}}.
+				</code>
+	  		</div>
+		</div>
+	</div>
+</div>

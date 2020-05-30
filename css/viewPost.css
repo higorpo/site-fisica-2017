@@ -1,0 +1,138 @@
+/* Lauthor-and-dateogin */
+
+#post-view {
+    background-image: url('../imagens/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#post-view:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: -webkit-linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 30%, #fff 30%);
+    background-image: -o-linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 30%, #fff 30%);
+    background-image: -ms-linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 30%, #fff 30%);
+    background-image: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 30%, #fff 30%);
+    opacity: 1; 
+    z-index: 0;
+}
+
+
+#post-view > header {
+    z-index: 1;
+}
+
+
+#post-view #content {
+    position: relative;
+    background-color: white;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 12px;
+    box-shadow: 2px 1px 25px rgba(0,0,0,0.5);
+    padding: 49px;
+    width: 78%;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+
+#post-view #content #articleActions {
+    float: right;    
+}
+
+#post-view #content #articleHeader p.author-and-date {
+    font-size: 12px;
+    color: black;
+    margin: 0px;
+}
+
+#post-view #content #articleHeader {
+    padding-bottom: 40px;
+    border-bottom: 1px solid #606060;
+}
+
+#post-view #content #articleHeader p.author-and-date:before {
+    content: "Publicado por: ";
+    font-weight: bold;
+}
+
+#post-view #content #articleHeader h1.title {
+    margin: 0px;
+}
+
+#post-view #content #articleHeader p.description {
+    color: grey;
+    font-size: 14px;
+    text-align: justify;
+    margin: 0px;
+}
+
+#post-view #content #conteudo {
+    margin-top: 40px;
+}
+
+#post-view #content #conteudo p {
+    color: grey;
+    text-align: justify;
+}
+
+#post-view #content #conteudo h4 {
+    font-size: 20px;
+    font-weight: bold;
+} 
+
+.like {
+    color: green;
+}
+
+.dislike {
+    color: red;
+}
+
+
+
+#post-view #referenceArticle {
+    z-index: 9999;
+    top: 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+#post-view #referenceArticle #reference-wrapper {
+    background-color: white;
+    border-radius: 5px;
+    padding: 23px 30px;
+    width: 50%;
+    overflow: auto;
+}
+
+#post-view #referenceArticle #reference-wrapper .reference-box-close {
+    float: right;
+    right: -30px;
+    top: -9px;
+}
+
+#post-view #referenceArticle #reference-wrapper #reference h1.title {
+    margin-top: 20px !important;
+}
+
+#post-view #referenceArticle #reference-wrapper #reference h1.title,  #post-view #referenceArticle #reference-wrapper #reference p.description{
+    margin: 0px;
+}
+
+#post-view #referenceArticle #reference-wrapper #reference code.referenceCode {
+    margin-top: 25px;
+    margin-bottom: 30px;
+    font-family: Arial;
+    font-size: 12px;
+    border: 1px solid black;
+    display: block;
+    padding: 15px;
+}

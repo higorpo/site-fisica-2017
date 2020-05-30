@@ -1,0 +1,74 @@
+<div id="index-view" layout="column">
+	<header layout="space-between">
+		<div class="logo" layout="row">
+			<a href="http://sombrio.ifc.edu.br/" target="_blank"><img class="logoImg" src="imagens/logo.png" width="40px" height="50px"></a>
+			<h1><a ui-sref="indexPage">FÍSICA</a></h1>
+		</div>
+		<nav>
+			<ul>
+				<li><a ui-sref="indexPage">Início</a></li>
+				<li ng-if="userLogged"><a ui-sref="userSettingsPage">Minhas configurações</a></li>
+				<li ng-if="userLogged"><a ui-sref="membersPage">Membros</a></li>
+				<li ng-if="userLogged"><a ui-sref="articlesPage">Meus artigos</a></li>
+				<li ng-if="userLogged"><a ui-sref="createPostPage">Criar artigo</a></li>
+				<li>
+					<md-button ng-if="!userLogged" ui-sref="loginPage" class="md-raised md-primary">
+						Entrar
+					</md-button>
+					<md-button ng-if="userLogged" ui-sref="logoutPage" class="md-raised md-primary">
+						Sair
+					</md-button>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<div id="content" layout="column" layout-align="center center">
+		<h1>Pesquise tudo sobre física</h1>
+		<p>O melhor site de física do <u>Instituto Federal Catarinense</u></p>
+
+		<div id="search" layout="row"> 
+			<md-input-container class="md-outline">
+				<label class="searchLabel">Pesquisar</label>
+				<input placeholder="Máquina de Carnot" class="searchInput" ng-model="search.input">
+			</md-input-container>
+
+			<md-button ng-click="search(search.input)" class="searchButton md-raised md-primary">
+				<md-icon>search</md-icon>
+			</md-button>
+		</div>
+
+		<div id="footer">
+			Site desenvolvido pelos alunos Higor Oliveira & Olívio Borges do 1° B
+		</div>
+
+	</div>
+
+
+
+	<div id="searchResults" ng-if="search.showResults" layout="column" layout-align="center center">
+		<div id="search-wrapper">
+
+			<md-button ng-click="search.showResults = false" class="search-box-close md-icon-button" aria-label="Fechar">
+        		<md-icon>close</md-icon>
+ 	 		</md-button>
+
+ 	 		<div id="results">
+				<h1 class="title">Resultados</h1>
+	 	 		<p class="subtitle">Buscando resultados para <span>{{search.input}}</span></p>
+
+	 	 		<h4 ng-if="nothing">Nenhum resultado encontrado!</h4>
+	 	 		<ul class="postList" ng-if="!nothing">
+ 					<li ng-repeat="data in results">
+						<a ui-sref="postPage({post: '{{data.url}}'})">
+	 	 					<h3 class="title">{{data.title}}</h3>
+	 	 					<p class="author">{{data.author}}</p>
+	 	 					<p class="date">{{data.date}}</p>
+	 	 					<p class="description">{{data.description}}</p>
+ 	 					</a>
+ 	 				</li>
+	 	 		</ul>
+ 	 		</div>
+
+		</div>
+	</div>
+</div>

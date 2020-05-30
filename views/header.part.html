@@ -1,0 +1,19 @@
+<header layout="space-between">
+		<div class="logo" layout="row">
+			<a href="http://sombrio.ifc.edu.br/" target="_blank"><img class="logoImg" src="imagens/logo.png" width="40px" height="50px"></a>
+			<h1><a ui-sref="indexPage">FÍSICA</a></h1>
+		</div>
+		<nav>
+			<ul>
+				<li><a ui-sref="indexPage">Início</a></li>
+				<li>
+					<md-button ng-if="!userLogged" ui-sref="loginPage" class="md-raised md-primary">
+						Entrar
+					</md-button>
+					<md-button ng-if="userLogged" ui-sref="logoutPage" class="md-raised md-primary">
+						Sair
+					</md-button>
+				</li>
+			</ul>
+		</nav>
+</header>

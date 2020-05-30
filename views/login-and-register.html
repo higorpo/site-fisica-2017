@@ -1,0 +1,24 @@
+<div id="login-view" layout="column" layout-align="center center">
+
+	<div id="content">
+		<div class="logo" layout="column" layout-align="center center">
+			<img class="logoImg" src="imagens/green-logo.png" width="40px" height="50px">
+			<h1><a ui-sref="indexPage">FÍSICA</a></h1>
+		</div>
+
+		<form id="content-login" layout="column">
+			<md-input-container class="input md-outline">
+				<label>Usuário</label>
+				<input required ng-model="user.user">
+			</md-input-container>
+
+			<md-input-container class="input md-outline">
+				<label>Senha</label>
+				<input required type="password" ng-model="user.pass">
+			</md-input-container>
+
+			<md-button type="send" ng-click="buttonLogin(user.user, user.pass)" class="md-raised md-primary">Login</md-button>
+		</form>
+
+	</div>
+</div>

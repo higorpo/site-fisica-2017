@@ -1,0 +1,48 @@
+<div id="articles-view" layout="column">
+	<header layout="space-between">
+		<div class="logo" layout="row">
+			<a href="http://sombrio.ifc.edu.br/" target="_blank"><img class="logoImg" src="imagens/logo.png" width="40px" height="50px"></a>
+			<h1><a ui-sref="indexPage">FÍSICA</a></h1>
+		</div>
+		<nav>
+			<ul>
+				<li><a ui-sref="indexPage">Início</a></li>
+				<li ng-if="userLogged"><a ui-sref="userSettingsPage">Minhas configurações</a></li>
+				<li ng-if="userLogged"><a ui-sref="membersPage">Membros</a></li>
+				<li ng-if="userLogged"><a ui-sref="articlesPage">Meus artigos</a></li>
+				<li ng-if="userLogged"><a ui-sref="createPostPage">Criar artigo</a></li>
+				<li>
+					<md-button ng-if="!userLogged" ui-sref="loginPage" class="md-raised md-primary">
+						Entrar
+					</md-button>
+					<md-button ng-if="userLogged" ui-sref="logoutPage" class="md-raised md-primary">
+						Sair
+					</md-button>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<div id="content" >
+		<h1>Meus artigos</h1>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Título</th>
+				<th>Descrição breve</th>
+				<th>Data de postagem</th>
+				<th>Ações</th>
+			</tr>
+			<tr ng-repeat="data in posts">
+				<td>{{data.id}}</td>
+				<td>{{data.title}}</td>
+				<td class="description">{{data.description}}</td>
+				<td>{{data.createddate}}</td>
+				<td>
+					<md-button ui-sref="postPage({post: '{{data.url}}'})"class="actionButton md-outline md-primary">Visualizar</md-button>
+					<md-button ui-sref="editPostPage({post: '{{data.url}}'})"class="actionButton md-raised md-primary">Editar</md-button>
+					<md-button ng-click="postDelete(data.id)" class="actionButton md-raised md-warn">Excluir</md-button>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

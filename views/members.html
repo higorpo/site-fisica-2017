@@ -1,0 +1,66 @@
+<div id="members-view" layout="column">
+	<header layout="space-between">
+		<div class="logo" layout="row">
+			<a href="http://sombrio.ifc.edu.br/" target="_blank"><img class="logoImg" src="imagens/logo.png" width="40px" height="50px"></a>
+			<h1><a ui-sref="indexPage">FÍSICA</a></h1>
+		</div>
+		<nav>
+			<ul>
+				<li><a ui-sref="indexPage">Início</a></li>
+				<li ng-if="userLogged"><a ui-sref="userSettingsPage">Minhas configurações</a></li>
+				<li ng-if="userLogged"><a ui-sref="membersPage">Membros</a></li>
+				<li ng-if="userLogged"><a ui-sref="articlesPage">Meus artigos</a></li>
+				<li ng-if="userLogged"><a ui-sref="createPostPage">Criar artigo</a></li>
+				<li>
+					<md-button ng-if="!userLogged" ui-sref="loginPage" class="md-raised md-primary">
+						Entrar
+					</md-button>
+					<md-button ng-if="userLogged" ui-sref="logoutPage" class="md-raised md-primary">
+						Sair
+					</md-button>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<div id="content" >
+		<h1>Membros atuais</h1>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Usuário</th>
+				<th>Nome completo</th>
+				<th>Descrição curta</th>
+				<th>Ações</th>
+			</tr>
+
+			<tr ng-repeat="data in users">
+				<td>{{data.id}}</td>
+				<td>{{data.username}}</td>
+				<td>{{data.fullname}}</td>
+				<td class="description">{{data.shortdescription}}</td>
+				<td>
+					<md-button ng-click="deleteUser(data.id)" class="md-raised md-primary">Excluir</md-button>
+				</td>
+			</tr>
+		</table>
+
+		<h1>Criar membro</h1>
+		<form layout="column">
+			<md-input-container class="user-input md-outline">
+				<label>Usuário</label>
+				<input required type="text" ng-model="user"/>
+			</md-input-container>
+			<md-input-container class="user-input md-outline">
+				<label>Senha</label>
+				<input required type="password" ng-model="pass"/>
+			</md-input-container>
+			<md-input-container class="user-input md-outline">
+				<label>Nome completo</label>
+				<input required type="text" ng-model="fullname"/>
+			</md-input-container>
+			<md-button ng-click="createUser(user, pass, fullname)" type="send" class="md-raised md-primary buttonAction">
+				Criar
+			</md-button>
+		</form>
+	</div>
+</div>

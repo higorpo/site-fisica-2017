@@ -1,0 +1,130 @@
+/* Index */
+#index-view {
+	background-color: black;
+	background-image: url('../imagens/background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+    overflow: hidden;
+}
+
+#index-view #content {
+	height: 100%;
+}
+
+#index-view #content #footer {
+	color: white;
+    background-color: black;
+    padding: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    position: absolute;
+    bottom: 7px;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+
+#index-view #content #footer:hover {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+#index-view #content h1, #index-view #content p {
+	color: white;
+	font-family: 'Raleway', sans-serif;
+	margin: 0px;
+}
+
+#index-view #content .searchLabel {
+	transform: translate3d(20px, 35px, 0) scale(0.75);
+}
+
+#index-view #content .searchInput {
+	background-color: white;
+	width: 350px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding-left: 20px;
+}
+
+#index-view #content .searchButton {
+    width: 60px;
+    margin-top: 20px;
+    margin-left: -9px;
+    height: 62px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#index-view #searchResults {
+	z-index: 9999;
+	top: 0px;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.8);
+}
+#index-view #searchResults #search-wrapper {
+	background-color: white;
+	border-radius: 5px;
+    padding: 23px 30px;
+	width: 50%;
+	height: 70%;
+	overflow: auto;
+}
+
+#index-view #searchResults #search-wrapper .search-box-close {
+	float: right;
+	right: -30px;
+    top: -9px;
+}
+
+#index-view #searchResults #search-wrapper #results h1.title,  #searchResults #search-wrapper #results p.subtitle{
+	margin: 0px;
+}
+
+#index-view #searchResults #search-wrapper #results p.subtitle span{
+	 background-color: lightblue;
+	 padding: 3px;
+	 cursor: pointer;
+     text-transform: capitalize;
+}
+
+#index-view #searchResults #search-wrapper #results ul.postList {
+	padding: 0px;
+	margin-top: 30px;
+	margin-left: 20px;
+}
+
+#index-view #searchResults #search-wrapper #results ul.postList li {
+	list-style-type: none;
+}
+
+#index-view #searchResults #search-wrapper #results ul.postList li a {
+	color: grey;
+}
+
+#index-view #searchResults #search-wrapper #results ul.postList li a h3.title {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+#index-view #searchResults #search-wrapper #results ul.postList li a p {
+	margin: 0;
+}
+
+#index-view #searchResults #search-wrapper #results ul.postList li a p.author:before {
+	content: "Autor: ";
+	font-weight: bold;
+}
+#index-view #searchResults #search-wrapper #results ul.postList li a p.date:before {
+	content: "Publicado em: ";
+	font-weight: bold;
+}
+#index-view #searchResults #search-wrapper #results ul.postList li a p.description:before {
+	content: "Descrição breve: ";
+	font-weight: bold;
+}

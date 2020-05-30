@@ -1,0 +1,56 @@
+header {
+	padding: 20px 100px;
+}
+
+header .logo img {
+	padding-right: 15px;
+	border-right: 2px dotted white;
+	opacity: 1;
+	transition: opacity 0.3s;
+}
+
+header .logo img:hover {
+	opacity: 0.7;
+	transition: opacity 0.3s;
+	cursor: pointer;
+}
+
+header .logo h1 a {
+	color: white;
+}
+
+header .logo h1 {
+	font-family: 'Raleway', sans-serif;
+	padding-left: 15px;
+	font-size: 46px;
+	margin: 0px;
+	opacity: 1;
+	transition: opacity 0.3s;
+}
+
+header .logo h1:hover {
+	opacity: 0.7;
+	transition: opacity 0.3s;
+	cursor: pointer;
+}
+
+header nav  {
+	width: 100%;
+}
+
+header nav ul {
+	float: right;
+}
+
+header nav ul li {
+	display: inline;
+	margin-left: 20px;
+}
+
+header nav ul li a{
+	color: white;
+}
+
+header nav ul li:not(:last-child) a:hover{
+	border-bottom: 1px solid white;
+}

@@ -1,0 +1,48 @@
+<div id="createPost-view" layout="column">
+	<header layout="space-between">
+		<div class="logo" layout="row">
+			<a href="http://sombrio.ifc.edu.br/" target="_blank"><img class="logoImg" src="imagens/logo.png" width="40px" height="50px"></a>
+			<h1><a ui-sref="indexPage">FÍSICA</a></h1>
+		</div>
+		<nav>
+			<ul>
+				<li><a ui-sref="indexPage">Início</a></li>
+				<li ng-if="userLogged"><a ui-sref="userSettingsPage">Minhas configurações</a></li>
+				<li ng-if="userLogged"><a ui-sref="membersPage">Membros</a></li>
+				<li ng-if="userLogged"><a ui-sref="articlesPage">Meus artigos</a></li>
+				<li ng-if="userLogged"><a ui-sref="createPostPage">Criar artigo</a></li>
+				<li>
+					<md-button ng-if="!userLogged" ui-sref="loginPage" class="md-raised md-primary">
+						Entrar
+					</md-button>
+					<md-button ng-if="userLogged" ui-sref="logoutPage" class="md-raised md-primary">
+						Sair
+					</md-button>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<div id="content" >
+		<h1>Criar artigo</h1>
+		
+		<form layout="column">
+			<md-input-container class="article-input md-outline">
+				<label>Título do artigo</label>
+				<input required md-maxlength="50" type="text" ng-model="postTitle"/>
+			</md-input-container>
+			<md-input-container class="article-input md-outline">
+				<label>Descrição da artigo</label>
+				<textarea required ng-model="postDescription" md-maxlength="150" rows="5"></textarea>
+			</md-input-container>		
+
+			<div id='editor'>
+	      		<p>Seu texto</p>
+		    </div>
+
+			<div id="actions" layout="row">
+				<md-button ng-disabled="disabledActions" type="send" class="saveArticle md-raised md-primary" ng-click="saveArticle(postTitle, postDescription)">Publicar artigo</md-button>
+				<md-button ng-disabled="disabledActions" class="cancelArticle md-outline md-primary" ui-sref="indexPage">Cancelar</md-button>
+			</div>
+		</form>
+	</div>
+</div>
